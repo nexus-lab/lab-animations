@@ -1,22 +1,23 @@
-var controlsProgressEl = document.querySelector('#TLcontrols .progress');
+var controlsProgressEl = document.querySelector('#playground .progress');
 
-var TLcontrols = anime.timeline({
+var playground = anime.timeline({
     easing: 'linear',
+    autoplay: false,
     update: function (anim) {
         controlsProgressEl.value = anim.progress;
     }
 });
 
-document.querySelector('#TLcontrols .play').onclick = TLcontrols.play;
-document.querySelector('#TLcontrols .pause').onclick = TLcontrols.pause;
-document.querySelector('#TLcontrols .restart').onclick = TLcontrols.restart;
+document.querySelector('#playground .play').onclick = playground.play;
+document.querySelector('#playground .pause').onclick = playground.pause;
+document.querySelector('#playground .restart').onclick = playground.restart;
 
 controlsProgressEl.addEventListener('input', function () {
-    TLcontrols.seek(TLcontrols.duration * (controlsProgressEl.value / 100));
+    playground.seek(playground.duration * (controlsProgressEl.value / 100));
 });
 
 ['input', 'change'].forEach(function (evt) {
     controlsProgressEl.addEventListener(evt, function () {
-        TLcontrols.seek(TLcontrols.duration * (controlsProgressEl.value / 100));
+        playground.seek(playground.duration * (controlsProgressEl.value / 100));
     });
 });

@@ -1,9 +1,42 @@
-<div>
-    <div class="square el"></div>
+<div class="scene" id="scene-1">
+    <svg id="connector" width="100%" height="100%">
+        <g fill="transparent" stroke="#8d6c9f" stroke-width="2">
+            <path id="victim-switch" d="M92 200 L92 240 L452 240 L452 200" />
+            <path id="server-switch" d="M364 152 L420 152" />
+            <path id="attacker-switch" d="M244 72 L452 72 L452 120" />
+            <path id="switch-router" d="M484 152 L540 152" />
+        </g>
+    </svg>
+    <svg id="dialog" width="100%" height="100%">
+        <g id="victim">
+            <rect x="82" y="40" width="183" height="35" fill="#faefde" />
+            <path fill="transparent" stroke="#8d6c9f" stroke-width="2" d="M92 120 L92 75 L82 75 L82 40 L265 40 L265 75 L96 75"></path>
+            <text x="90" y="62" fill="#8d6c9f">Where is server (10.0.0.1)?</text>
+        </g>
+    </svg>
+    <span class="actor" id="attacker">
+        <img class="icon" src="img/icons8-hacker-64.png">
+        <span class="name">Attacker</span>
+    </span>
+    <span class="actor" id="victim">
+        <img class="icon" src="img/icons8-windows-client-64.png">
+        <span class="name">Victim</span>
+    </span>
+    <span class="actor" id="server">
+        <img class="icon" src="img/icons8-server-64.png">
+        <span class="name">Server</span>
+    </span>
+    <span class="actor" id="switch">
+        <img class="icon" src="img/icons8-switch-64.png">
+        <span class="name">Switch</span>
+    </span>
+    <span class="actor" id="router">
+        <img class="icon" src="img/icons8-router-64.png">
+        <span class="name">Router</span>
+    </span>
+    <span id="arp-request" class="packet">ARP Request</span>
+    <span id="arp-response" class="packet">ARP Response</span>
 </div>
-<div>
-    <div class="circle el"></div>
-</div>
-<div>
-    <div class="triangle el"></div>
+<div class="scene" id="scene-2">
+    <h2>When there is no attack...</h2>
 </div>

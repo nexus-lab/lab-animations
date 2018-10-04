@@ -6,29 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><%= title %></title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <!-- build:css /css/index.css -->
-    <link rel="stylesheet" href="global.css">
-    <link rel="stylesheet" href="../<%= project %>/index.css">
+    <link rel="stylesheet" href="../common/global.css">
+    <link rel="stylesheet" href="index.css">
     <!-- endbuild -->
 </head>
 
 <body>
-    <div class="playground">
-        <div id="TLcontrols">
-            <%- include(project_dir + '/index.ejs') %>
-            <div class="player">
-                <button class="play"><i class="fas fa-play"></i></button>
-                <button class="pause"><i class="fas fa-pause"></i></button>
-                <button class="restart"><i class="fas fa-sync-alt"></i></button>
-                <input class="progress" step="2" min="0" max="100" value="0" type="range">
-            </div>
+    <div id="playground">
+        <%- include(project_dir + '/index.ejs') %>
+        <div class="player">
+            <button class="play"><i class="fas fa-play"></i></button>
+            <button class="pause"><i class="fas fa-pause"></i></button>
+            <button class="restart"><i class="fas fa-sync-alt"></i></button>
+            <input class="progress" step="2" min="0" max="100" value="0" type="range">
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
     <!-- build:js /js/index.js -->
-    <script src="global.js"></script>
-    <script src="../<%= project %>/index.js"></script>
+    <script src="../common/global.js"></script>
+    <script src="index.js"></script>
     <!-- endbuild -->
 </body>
 

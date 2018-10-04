@@ -1,7 +1,65 @@
-.square,
-.circle,
-.triangle {
-    width: 20px;
-    height: 20px;
-    background: red;
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#victim {
+    top: 120px;
+    left: 60px;
+}
+
+#attacker {
+    top: 40px;
+    left: 180px;
+    opacity: 0;
+}
+
+#attacker-switch {
+    opacity: 0;
+}
+
+#server {
+    top: 120px;
+    left: 300px;
+}
+
+#switch {
+    top: 120px;
+    left: 420px;
+}
+
+#router {
+    top: 120px;
+    left: 540px;
+}
+
+#scene-2 {
+    background: white;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+}
+
+#scene-2 h2 {
+    text-align: center;
+    flex: 1 1;
+}
+
+.packet {
+    border: 2px solid #8d6c9f;
+    background: #faefde;
+    font-size: 0.6rem;
+    padding: 2px;
+    position: absolute;
+}
+
+#arp-request {
+    top: -7px;
+    left: -29px;
+}
+
+#arp-response {
+    top: -7px;
+    left: -36px;
 }

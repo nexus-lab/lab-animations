@@ -22,7 +22,9 @@ gulp.task('clean', function () {
 })
 
 gulp.task('build', ['clean'], function () {
-    return gulp.src(path.join(common, 'layout.ejs'))
+    gulp.src(path.join(project, 'img/**/*'))
+        .pipe(gulp.dest(path.join(dist, 'img')));
+    gulp.src(path.join(common, 'layout.ejs'))
         .pipe(ejs({
             title: argv.project,
             project: argv.project,
@@ -33,11 +35,12 @@ gulp.task('build', ['clean'], function () {
         </script>`)))
         .pipe(rename("index.html"))
         .pipe(usemin({
+            path: project,
             css: [minifyCss(), 'concat'],
             js: [uglify(), 'concat'],
-            html: [ htmlmin({ collapseWhitespace: true }) ],
-            inlinejs: [ uglify() ],
-            inlinecss: [ minifyCss(), 'concat' ]
+            html: [htmlmin({ collapseWhitespace: true })],
+            inlinejs: [uglify()],
+            inlinecss: [minifyCss(), 'concat']
         }))
         .pipe(gulp.dest(dist))
         .pipe(connect.reload());

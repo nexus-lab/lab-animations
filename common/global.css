@@ -1,8 +1,11 @@
 body {
     background: #232323;
+    font-family: 'Raleway';
+    font-size: 14px;
+    font-weight: 400;
 }
 
-.playground {
+#playground {
     position: relative;
     width: 640px;
     height: 320px;
@@ -10,11 +13,35 @@ body {
     background-color: white;
     border-radius: 4px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.2);
-    overflow:hidden;
+    overflow: hidden;
 }
 
-.playground .player {
+#playground .scene {
     position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+#playground .scene .actor {
+    display: inline-block;
+    position: absolute;
+}
+
+#playground .scene .actor .icon,
+#playground .scene .actor .name {
+    display: block;
+}
+
+#playground .scene .actor .name {
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+#playground .player {
+    position: absolute;
+    z-index: 1000;
     opacity: .7;
     display: flex;
     align-items: center;
@@ -26,7 +53,7 @@ body {
     right: 0;
 }
 
-.playground .player button {
+#playground .player button {
     position: relative;
     display: block;
     padding: 5px 10px;
@@ -36,11 +63,11 @@ body {
     color: white;
     opacity: 0.8;
 }
-  
-.playground .player button:hover {
+
+#playground .player button:hover {
     opacity: 1;
 }
 
-.playground .player input[type="range"] {
+#playground .player input[type="range"] {
     flex: 1 1;
 }
