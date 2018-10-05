@@ -45,6 +45,27 @@ svg {
 .broswer {
     margin: 20px 20px 0;
     border-radius: 4px 4px 0;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0,0,0,0.2);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     background: #f2f2f2;
+}
+
+.broswer .actionbar {
+    padding: 5px 10px;
+    display: flex;
+}
+
+.broswer .actionbar .icon {
+    width: 24px;
+    height: 24px;
+}
+
+.broswer .actionbar .url {
+    background: white;
+    padding: 4px 8px;
+    font-size: 0.7rem;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    flex: 1 1;
+    margin-left: 10px;
 }

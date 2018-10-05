@@ -1,5 +1,5 @@
 const timePopUp = 200;
-const packetSpeed = 1 / 8;
+const packetSpeed = 1 / 10;
 
 const victimToSwitch = anime.path('#vic-swc');
 const serverToSwitch = anime.path('#srv-swc');
@@ -20,7 +20,7 @@ function showDialog(id, offset = 0) {
         targets: `${id} text, ${id} rect`,
         opacity: 0,
         duration: 500,
-        delay: 1000
+        delay: 1500
     }, {
         targets: `${id} path`,
         strokeDashoffset: [0, anime.setDashoffset],
@@ -82,9 +82,9 @@ playground.add(showPacket('#arp-response', [serverToSwitch, victimToSwitch], ['n
 playground.add(showDialog('#dlg-victim-1'));
 playground.add(showPacket('#data-1', [victimToSwitch, serverToSwitch], ['normal', 'reverse']));
 playground.add(showPacket('#data-2', [victimToSwitch, serverToSwitch], ['normal', 'reverse'],
-    240 - ((victimToSwitch().el.getTotalLength() + serverToSwitch().el.getTotalLength()) / packetSpeed | 0)));
+    300 - ((victimToSwitch().el.getTotalLength() + serverToSwitch().el.getTotalLength()) / packetSpeed | 0)));
 playground.add(showPacket('#data-3', [victimToSwitch, serverToSwitch], ['normal', 'reverse'],
-    240 - ((victimToSwitch().el.getTotalLength() + serverToSwitch().el.getTotalLength()) / packetSpeed | 0)));
+    300 - ((victimToSwitch().el.getTotalLength() + serverToSwitch().el.getTotalLength()) / packetSpeed | 0)));
 
 /**
  * Phase 3
@@ -107,14 +107,15 @@ playground.add(showPacket('#arp-request', [serverToSwitch], ['reverse']));
 playground.add(showPacket('#arp-request-1', [attackerToSwitch], ['reverse'],
     -(serverToSwitch().el.getTotalLength() / packetSpeed | 0)));
 playground.add(showDialog('#dlg-server-1'));
-playground.add(showDialog('#dlg-attacker', -3000));
+playground.add(showDialog('#dlg-attacker', -3500));
 playground.add(showPacket('#arp-response', [serverToSwitch, victimToSwitch], ['normal', 'reverse']));
 playground.add(showPacket('#arp-response-1', [attackerToSwitch, victimToSwitch], ['normal', 'reverse'],
-    -((victimToSwitch().el.getTotalLength() + serverToSwitch().el.getTotalLength()) / packetSpeed | 0)));
-    
+    -500 - ((victimToSwitch().el.getTotalLength() + serverToSwitch().el.getTotalLength()) / packetSpeed | 0)));
+
 playground.add(showDialog('#dlg-victim-2'));
 playground.add(showPacket('#data-1', [victimToSwitch, attackerToSwitch], ['normal', 'reverse']));
 playground.add(showPacket('#data-2', [victimToSwitch, attackerToSwitch], ['normal', 'reverse'],
-    240 - ((victimToSwitch().el.getTotalLength() + attackerToSwitch().el.getTotalLength()) / packetSpeed | 0)));
+    300 - ((victimToSwitch().el.getTotalLength() + attackerToSwitch().el.getTotalLength()) / packetSpeed | 0)));
 playground.add(showPacket('#data-3', [victimToSwitch, attackerToSwitch], ['normal', 'reverse'],
-    240 - ((victimToSwitch().el.getTotalLength() + attackerToSwitch().el.getTotalLength()) / packetSpeed | 0)));
+    300 - ((victimToSwitch().el.getTotalLength() + attackerToSwitch().el.getTotalLength()) / packetSpeed | 0)));
+playground.add(showDialog('#dlg-attacker-1'));
