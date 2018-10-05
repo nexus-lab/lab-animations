@@ -12,11 +12,11 @@ svg {
 #attacker {
     top: 40px;
     left: 180px;
-    opacity: 0;
+    /* opacity: 0; */
 }
 
 #attacker-switch {
-    opacity: 0;
+    /* opacity: 0; */
 }
 
 #server {
@@ -34,14 +34,13 @@ svg {
     left: 540px;
 }
 
-#scene-2 {
+#scene-2, #scene-3 {
     background: white;
     display: flex;
     align-items: center;
-    opacity: 0;
 }
 
-#scene-2 h2 {
+#scene-2 h2, #scene-3 h2 {
     text-align: center;
     flex: 1 1;
 }
@@ -55,7 +54,7 @@ svg {
 }
 
 #arp-request {
-    top: -7px;
+    top: -8px;
     left: -29px;
 }
 

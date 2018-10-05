@@ -29,7 +29,7 @@ playground.add({
  */
 playground.add({
     targets: '#scene-2',
-    opacity: 1,
+    opacity: [0, 1],
     zIndex: 998,
     duration: 500,
     offset: '+=2000'
@@ -64,78 +64,129 @@ playground.add({
     easing: 'easeInOutSine',
     duration: 500
 });
+playground.add({
+    targets: '#arp-request',
+    opacity: [0, 1],
+    duration: 200
+});
+playground.add({
+    targets: '#arp-request',
+    translateX: victimToSwitch('x'),
+    translateY: victimToSwitch('y'),
+    duration: 2500,
+    offset: '-=200'
+});
+playground.add({
+    targets: '#arp-request',
+    opacity: [1, 0],
+    duration: 200,
+    offset: '-=200'
+});
+playground.add({
+    targets: '#arp-request',
+    opacity: [0, 1],
+    duration: 200
+});
+playground.add({
+    targets: '#arp-request',
+    translateX: serverToSwitch('x'),
+    translateY: serverToSwitch('y'),
+    easing: 'reverseEase',
+    duration: 500,
+    offset: '-=200'
+});
+playground.add({
+    targets: '#arp-request',
+    opacity: [1, 0],
+    duration: 200,
+    offset: '-=200'
+});
+playground.add({
+    targets: '#dialog #server path',
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 500
+});
+playground.add({
+    targets: '#dialog #server text, #dialog #server rect',
+    opacity: [0, 1],
+    duration: 500
+});
+playground.add({
+    targets: '#dialog #server text, #dialog #server rect',
+    opacity: 0,
+    duration: 500,
+    offset: '+=2000'
+});
+playground.add({
+    targets: '#dialog #server path',
+    strokeDashoffset: [0, anime.setDashoffset],
+    easing: 'easeInOutSine',
+    duration: 500
+});
+playground.add({
+    targets: '#arp-response',
+    opacity: [0, 1],
+    duration: 200
+});
+playground.add({
+    targets: '#arp-response',
+    translateX: serverToSwitch('x'),
+    translateY: serverToSwitch('y'),
+    duration: 500,
+    offset: '-=200'
+});
+playground.add({
+    targets: '#arp-response',
+    opacity: [1, 0],
+    duration: 200,
+    offset: '-=200'
+});
+playground.add({
+    targets: '#arp-response',
+    opacity: [0, 1],
+    duration: 200
+});
+playground.add({
+    targets: '#arp-response',
+    translateX: victimToSwitch('x'),
+    translateY: victimToSwitch('y'),
+    easing: 'reverseEase',
+    duration: 2500,
+    offset: '-=200'
+});
+playground.add({
+    targets: '#arp-response',
+    opacity: [1, 0],
+    duration: 200,
+    offset: '-=200'
+});
 
+/**
+ * Phase 2
+ */
 playground.add({
-    targets: '#arp-request',
+    targets: '#scene-3',
     opacity: [0, 1],
-    duration: 200
-});
-playground.add({
-    targets: '#arp-request',
-    translateX: victimToSwitch('x'),
-    translateY: victimToSwitch('y'),
-    duration: 2500,
-    offset: '-=200'
-});
-playground.add({
-    targets: '#arp-request',
-    opacity: [1, 0],
-    duration: 200,
-    offset: '-=200'
-});
-playground.add({
-    targets: '#arp-request',
-    opacity: [0, 1],
-    duration: 200
-});
-playground.add({
-    targets: '#arp-request',
-    translateX: serverToSwitch('x'),
-    translateY: serverToSwitch('y'),
-    easing: 'reverseEase',
+    zIndex: 998,
     duration: 500,
-    offset: '-=200'
+    offset: '+=1000'
 });
 playground.add({
-    targets: '#arp-request',
-    opacity: [1, 0],
-    duration: 200,
-    offset: '-=200'
-});
-playground.add({
-    targets: '#arp-response',
-    opacity: [0, 1],
-    duration: 200
-});
-playground.add({
-    targets: '#arp-response',
-    translateX: serverToSwitch('x'),
-    translateY: serverToSwitch('y'),
+    targets: '#scene-3',
+    opacity: 0,
+    zIndex: -1,
     duration: 500,
-    offset: '-=200'
+    offset: '+=2000'
 });
 playground.add({
-    targets: '#arp-response',
-    opacity: [1, 0],
-    duration: 200,
-    offset: '-=200'
+    targets: '#scene-1 .actor#attacker',
+    scale: [0, 1],
+    duration: timePopUp,
 });
 playground.add({
-    targets: '#arp-response',
-    opacity: [0, 1],
-    duration: 200
-});
-playground.add({
-    targets: '#arp-response',
-    translateX: victimToSwitch('x'),
-    translateY: victimToSwitch('y'),
-    easing: 'reverseEase',
-    duration: 2500,
-    offset: '-=200'
-});
-playground.add({
-    targets: '#arp-response',
-    opacity: [1, 0],
-    duration: 200,
-    offset: '-=200'
+    targets: '#connector path#attacker-switch',
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 500,
 });
