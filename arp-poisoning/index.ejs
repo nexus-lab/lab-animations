@@ -1,23 +1,9 @@
 <div class="scene" id="scene-1">
-    <svg id="connector" width="100%" height="100%">
-        <g fill="transparent" stroke="#8d6c9f" stroke-width="2">
-            <path id="victim-switch" d="M92 200 L92 240 L452 240 L452 200" />
-            <path id="server-switch" d="M364 152 L420 152" />
-            <path id="attacker-switch" d="M244 72 L452 72 L452 120" />
-            <path id="switch-router" d="M484 152 L540 152" />
-        </g>
-    </svg>
-    <svg id="dialog" width="100%" height="100%">
-        <g id="victim">
-            <rect x="82" y="40" width="183" height="35" fill="#faefde" />
-            <path fill="transparent" stroke="#8d6c9f" stroke-width="2" d="M92 120 L92 75 L82 75 L82 40 L265 40 L265 75 L96 75"></path>
-            <text x="90" y="62" fill="#8d6c9f">Where is server (10.0.0.1)?</text>
-        </g>
-        <g id="server">
-            <rect x="322" y="40" width="170" height="35" fill="#faefde" />
-            <path fill="transparent" stroke="#8d6c9f" stroke-width="2" d="M332 120 L332 75 L322 75 L322 40 L492 40 L492 75 L336 75"></path>
-            <text x="330" y="62" fill="#8d6c9f">I'm at 42:FD:4D:1C:D7:B1.</text>
-        </g>
+    <svg id="links" width="100%" height="100%" fill="transparent" stroke="#8d6c9f" stroke-width="2">
+        <path id="vic-swc" d="M92 230 L92 270 L452 270 L452 230" />
+        <path id="srv-swc" d="M364 182 L420 182" />
+        <path id="atk-swc" d="M452 112 L452 150" />
+        <path id="swc-rtr" d="M484 182 L540 182" />
     </svg>
     <span class="actor" id="attacker">
         <img class="icon" src="img/icons8-hacker-64.png">
@@ -39,12 +25,52 @@
         <img class="icon" src="img/icons8-router-64.png">
         <span class="name">Router</span>
     </span>
+    <svg width="100%" height="100%">
+        <g id="dlg-victim">
+            <rect x="82" y="70" width="183" height="35" fill="#faefde" />
+            <path fill="transparent" stroke="#8d6c9f" stroke-width="2" d="M92 150 L92 105 L82 105 L82 70 L265 70 L265 105 L96 105"></path>
+            <text x="90" y="92" fill="#8d6c9f">Where is server (10.0.0.1)?</text>
+        </g>
+        <g id="dlg-victim-1">
+            <rect x="82" y="70" width="213" height="35" fill="#faefde" />
+            <path fill="transparent" stroke="#8d6c9f" stroke-width="2" d="M92 150 L92 105 L82 105 L82 70 L295 70 L295 105 L96 105"></path>
+            <text x="90" y="92" fill="#8d6c9f">Hi, server at FF:FF:FF:FF:FF:01!</text>
+        </g>
+        <g id="dlg-victim-2">
+            <rect x="82" y="70" width="213" height="35" fill="#ec7798" />
+            <path fill="transparent" stroke="#8d6c9f" stroke-width="2" d="M92 150 L92 105 L82 105 L82 70 L295 70 L295 105 L96 105"></path>
+            <text x="90" y="92" fill="#333">Hi, server at FF:FF:FF:FF:FF:02!</text>
+        </g>
+        <g id="dlg-server">
+            <rect x="322" y="70" width="170" height="35" fill="#faefde" />
+            <path fill="transparent" stroke="#8d6c9f" stroke-width="2" d="M332 150 L332 105 L322 105 L322 70 L492 70 L492 105 L336 105"></path>
+            <text x="330" y="92" fill="#8d6c9f">I'm at FF:FF:FF:FF:FF:01.</text>
+        </g>
+        <g id="dlg-server-1">
+            <rect x="152" y="90" width="170" height="35" fill="#faefde" />
+            <path fill="transparent" stroke="#8d6c9f" stroke-width="2" d="M332 150 L332 105 L322 105 L322 90 L152 90 L152 125 L322 125 L322 110"></path>
+            <text x="160" y="112" fill="#8d6c9f">I'm at FF:FF:FF:FF:FF:01.</text>
+        </g>
+        <g id="dlg-attacker">
+            <rect height="35" fill="#faefde" y="40" width="210" x="182" />
+            <path fill="transparent" stroke="#8d6c9f" stroke-width="2" d="M415 54 L392 54 L392 40 L182 40 L182 75 L392 75 L392 60" />
+            <text fill="#8d6c9f" y="62" x="190">Server's at FF:FF:FF:FF:FF:02.</text>
+        </g>
+    </svg>
     <span id="arp-request" class="packet">ARP Request</span>
+    <span id="arp-request-1" class="packet">ARP Request</span>
     <span id="arp-response" class="packet">ARP Response</span>
-</div>
-<div class="scene" id="scene-2">
-    <h2>When there is no attack...</h2>
-</div>
-<div class="scene" id="scene-3">
-    <h2>When there is an ARP cache poisoning attack...</h2>
+    <span id="arp-response-1" class="packet">ARP Response</span>
+    <span id="data-1" class="packet">Data</span>
+    <span id="data-2" class="packet">Data</span>
+    <span id="data-3" class="packet">Data</span>
+    <span class="splash" id="splash-1">
+        <h2>ARP Cache Poisoning</h2>
+    </span>
+    <span class="splash" id="splash-2">
+        <h2>When there is no attack...</h2>
+    </span>
+    <span class="splash" id="splash-3">
+        <h2>When there is an ARP cache poisoning attack...</h2>
+    </span>
 </div>

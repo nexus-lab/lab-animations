@@ -51,6 +51,12 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
+    transform: translate(0, 50px);
+    transition: 0.2s ease-in-out;
+}
+
+#playground:hover .player {
+    transform: translate(0, 0);
 }
 
 #playground .player button {
@@ -70,4 +76,23 @@ body {
 
 #playground .player input[type="range"] {
     flex: 1 1;
+}
+
+#playground .scene .splash {
+    display: flex;
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    align-items: center;
+}
+
+#playground .scene .splash h2 {
+    flex: 1 1;
+    text-align: center;
+    color: #333;
+    font-weight: 400;
 }

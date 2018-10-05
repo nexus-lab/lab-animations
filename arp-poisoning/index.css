@@ -5,44 +5,28 @@ svg {
 }
 
 #victim {
-    top: 120px;
+    top: 150px;
     left: 60px;
 }
 
 #attacker {
-    top: 40px;
-    left: 180px;
-    /* opacity: 0; */
-}
-
-#attacker-switch {
-    /* opacity: 0; */
+    top: 30px;
+    left: 420px;
 }
 
 #server {
-    top: 120px;
+    top: 150px;
     left: 300px;
 }
 
 #switch {
-    top: 120px;
+    top: 150px;
     left: 420px;
 }
 
 #router {
-    top: 120px;
+    top: 150px;
     left: 540px;
-}
-
-#scene-2, #scene-3 {
-    background: white;
-    display: flex;
-    align-items: center;
-}
-
-#scene-2 h2, #scene-3 h2 {
-    text-align: center;
-    flex: 1 1;
 }
 
 .packet {
@@ -51,14 +35,24 @@ svg {
     font-size: 0.6rem;
     padding: 2px;
     position: absolute;
+    color: #333;
 }
 
-#arp-request {
+#arp-request, #arp-request-1 {
     top: -8px;
     left: -29px;
 }
 
-#arp-response {
-    top: -7px;
+#arp-response, #arp-response-1 {
+    top: -8px;
     left: -36px;
+}
+
+#arp-response-1 {
+    background: #ec7798;
+}
+
+#data-1, #data-2, #data-3 {
+    top: -11px;
+    left: -13px;
 }
