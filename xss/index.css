@@ -1,0 +1,50 @@
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#hand-cursor {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    left: 50%;
+}
+
+#hacker {
+    top: calc(30% - 32px);
+    left: calc(20% - 32px);
+}
+
+#victim {
+    top: calc(70% - 32px);
+    left: calc(20% - 32px);
+}
+
+#internet {
+    top: calc(50% - 32px);
+    left: calc(40% - 32px);
+}
+
+#server {
+    top: calc(70% - 32px);
+    left: calc(60% - 32px);
+}
+
+#database {
+    top: calc(70% - 32px);
+    left: calc(80% - 32px);
+}
+
+#malisvr {
+    top: calc(30% - 32px);
+    left: calc(70% - 32px);
+}
+
+.broswer {
+    margin: 20px 20px 0;
+    border-radius: 4px 4px 0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0,0,0,0.2);
+    background: #f2f2f2;
+}

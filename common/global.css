@@ -39,6 +39,14 @@ body {
     font-size: 0.8rem;
 }
 
+#playground .scene .actor .sub-icon {
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    width: 32px;
+    height: 32px;
+}
+
 #playground .player {
     position: absolute;
     z-index: 1000;
