@@ -1,6 +1,13 @@
 const defaultPacketSpeed = 1 / 10;
 const controlsProgressEl = document.querySelector('#playground .progress');
 
+function formatDuration(duration) {
+    const total = Math.round(duration / 1000);
+    const seconds = total % 60;
+    const minutes = total / 60 | 0;
+    return minutes + ':' + ('0' + seconds).slice(('0' + seconds).length - 2);
+}
+
 const playground = anime.timeline({
     easing: 'linear',
     autoplay: false,
@@ -9,6 +16,8 @@ const playground = anime.timeline({
         if (anim.progress === 100) {
             document.querySelector('#playground .pause').disabled = true;
         }
+        document.querySelector('#playground .duration').innerHTML =
+            formatDuration((100 - anim.progress) * anim.duration / 100);
     }
 });
 
@@ -113,7 +122,7 @@ function packetTime(paths, speed = defaultPacketSpeed) {
     return Math.round(distance / speed);
 }
 
-function showSplash(id) {
+function showSplash(id, beginning = false) {
     return [{
         targets: id,
         zIndex: 998,
@@ -122,7 +131,7 @@ function showSplash(id) {
         targets: id,
         opacity: [0, 1],
         duration: 500,
-        offset: '+=1500'
+        offset: beginning ? '+=0' : '+=1500'
     }, {
         targets: id,
         opacity: 0,

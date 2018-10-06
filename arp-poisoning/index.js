@@ -7,7 +7,7 @@ const attackerToSwitch = anime.path('#atk-swc');
 /**
  * Phase 1
  */
-playground.add(showSplash('#splash-1'));
+playground.add(showSplash('#splash-1', true));
 playground.add({
     targets: '.actor:not(#attacker)',
     scale: [0, 1],

@@ -74,7 +74,7 @@ domready(function () {
     /**
      * Phase 1
      */
-    playground.add(showSplash('#splash-1'));
+    playground.add(showSplash('#splash-1', true));
     playground.add({
         targets: '.actor',
         scale: [0, 1],
