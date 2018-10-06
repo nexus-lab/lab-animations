@@ -4,12 +4,18 @@ svg {
     left: 0;
 }
 
-#hand-cursor {
+.pointer {
     position: absolute;
     width: 24px;
     height: 24px;
-    top: 50%;
-    left: 50%;
+    top: calc(50% - 12px);
+    left: calc(50% - 12px);
+}
+
+#magni-glass {
+    top: 184px;
+    left: 130px;
+    transform: scaleX(-1);
 }
 
 #hacker {
@@ -42,30 +48,232 @@ svg {
     left: calc(70% - 32px);
 }
 
-.broswer {
+.browser {
+    position: absolute;
     margin: 20px 20px 0;
-    border-radius: 4px 4px 0;
+    border-radius: 4px 4px 0 0;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
     border: 1px solid rgba(0, 0, 0, 0.1);
     background: #f2f2f2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
-.broswer .actionbar {
+.browser .actionbar {
     padding: 5px 10px;
     display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.broswer .actionbar .icon {
+.browser .actionbar .icon {
     width: 24px;
     height: 24px;
 }
 
-.broswer .actionbar .url {
+.browser .actionbar .url {
     background: white;
-    padding: 4px 8px;
+    padding: 4px 4px 4px 8px;
     font-size: 0.7rem;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
     border-radius: 2px;
     flex: 1 1;
     margin-left: 10px;
+    line-height: 1rem;
+    display: flex;
+    color: #333;
+}
+
+.browser .actionbar .url span {
+    flex: 1 1;
+}
+
+.browser .actionbar .url svg {
+    position: relative !important;
+    width: 16px;
+    height: 16px;
+}
+
+.browser .content {
+    display: flex;
+    background: white;
+    height: 100%;
+}
+
+.browser .content h4 {
+    font-size: 0.8rem;
+    font-weight: normal;
+}
+
+.browser .content .description {
+    flex: 1 1;
+    margin: 15px 30px;
+}
+
+.browser .content .description .item {
+    display: flex;
+    align-items: center;
+}
+
+.browser .content .description .item img {
+    width: 48px;
+    height: 48px;
+}
+
+.browser .content .description .meta {
+    flex: 1 1;
+    margin-left: 15px;
+}
+
+.browser .content .description .meta .name, .browser .content .description .meta .price {
+    display: block;
+}
+
+.browser .content .description .meta .price {
+    font-size: 0.7rem;
+    color: green;
+}
+
+.browser .content .description .reviews {
+    margin: 0 5px;
+}
+
+.browser .content .description .review {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.browser .content .description .review img {
+    width: 32px;
+    height: 32px;
+}
+
+.browser .content .description .review .name, .browser .content .description .review .text {
+    font-size: 0.75rem;
+}
+
+.browser .content .description .review .name {
+    font-weight: bold;
+}
+
+.browser .content .field-name, .browser .content .field-value {
+    display: block;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.browser .content .field-name {
+    font-size: 0.65rem;
+    margin-bottom: 4px;
+}
+
+.browser .content .field-value {
+    font-size: 0.7rem;
+    border-radius: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 4px 6px;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.browser .content .submit {
+    background: #f7f7f7;
+    padding: 10px 0;
+    border-radius: 0 0 4px 4px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.browser .content .submit div {
+    margin: 0 10px;
+}
+
+.browser .content .submit button {
+    background: #febd69;
+    border: #dd9b46;
+    width: 100%;
+    padding: 4px;
+    border-radius: 2px;
+    font-family: inherit;
+}
+
+.browser .content .write-review, .browser .content .payment {
+    padding-top: 10px;
+    margin: 10px 30px auto;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.browser .content .write-review {
+    flex: 0 0;
+}
+
+.browser .content .write-review h4 {
+    font-size: 0.75rem;
+    margin: -10px 0 10px;
+    padding: 8px 10px;
+    background: #f7f7f7;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px 4px 0 0;
+}
+
+.browser .content .write-review #rate i {
+    color: #aaa;
+    display: inline-block;
+    color: #aaa;
+    font-size: 14px;
+    width: 14px;
+}
+
+.browser .content .write-review textarea {
+    min-width: 200px;
+    max-height: 100px;
+    font-size: 0.6rem;
+}
+
+.browser .content .payment {
+    flex: 0;
+}
+
+#browser-2 #look-inside {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0.7rem;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 4px;
+    overflow: hidden;
+    transform-origin: 0 0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+#browser-2 #look-inside pre {
+    margin: 0;
+}
+
+#browser-2 #look-inside pre code {
+    margin: 0;
+    padding: 6px 10px;
+}
+
+#http-request {
+    margin-top: -10px;
+    margin-left: -36px;
+}
+
+#http-response {
+    margin-top: -10px;
+    margin-left: -40px;
+}
+
+#db-reviews {
+    margin-top: -10px;
+    margin-left: -23px;
+}
+
+#payment-data {
+    margin-top: -10px;
+    margin-left: -35px;
+    background: #ec7798 !important;
 }

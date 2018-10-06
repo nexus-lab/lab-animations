@@ -29,8 +29,7 @@ body {
     position: absolute;
 }
 
-#playground .scene .actor .icon,
-#playground .scene .actor .name {
+#playground .scene .actor .icon, #playground .scene .actor .name {
     display: block;
 }
 
@@ -67,23 +66,38 @@ body {
     transform: translate(0, 0);
 }
 
+#playground .player .material-icons {
+    font-size: inherit;
+}
+
 #playground .player button {
     position: relative;
     display: block;
-    padding: 5px 10px;
-    font-size: 12px;
+    padding: 2px 6px;
+    font-size: 18px;
     border: none;
     background-color: transparent;
-    color: white;
-    opacity: 0.8;
+    color: #fff;
+    opacity: .8;
+    line-height: 18px;
 }
 
-#playground .player button:hover {
+#playground .player button:disabled {
+    opacity: 0.4;
+}
+
+#playground .player button:hover:not(:disabled) {
     opacity: 1;
 }
 
 #playground .player input[type="range"] {
     flex: 1 1;
+}
+
+#playground .scene svg {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #playground .scene .splash {
@@ -103,4 +117,13 @@ body {
     text-align: center;
     color: #333;
     font-weight: 400;
+}
+
+#playground .scene .packet {
+    border: 2px solid #8d6c9f;
+    background: #faefde;
+    font-size: 0.6rem;
+    padding: 2px;
+    position: absolute;
+    color: #333;
 }

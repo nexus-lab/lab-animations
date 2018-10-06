@@ -1,9 +1,3 @@
-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
 #victim {
     top: 150px;
     left: 60px;
@@ -29,15 +23,6 @@ svg {
     left: 540px;
 }
 
-.packet {
-    border: 2px solid #8d6c9f;
-    background: #faefde;
-    font-size: 0.6rem;
-    padding: 2px;
-    position: absolute;
-    color: #333;
-}
-
 #arp-request, #arp-request-1 {
     top: -8px;
     left: -29px;
@@ -49,7 +34,7 @@ svg {
 }
 
 #arp-response-1 {
-    background: #ec7798;
+    background: #ec7798 !important;
 }
 
 #data-1, #data-2, #data-3 {
