@@ -15,15 +15,14 @@ const htmlmin = require('gulp-htmlmin');
 
 const dist = path.join(__dirname, 'dist');
 const common = path.join(__dirname, 'common');
-const project = path.join(__dirname, argv.project);
+const project = argv.project ? path.join(__dirname, argv.project) : '';
 
 gulp.task('clean', function () {
-    return del([dist]);
-})
+    return del([dist, dist + '-production']);
+});
 
 gulp.task('build', ['clean'], function () {
-    gulp.src(path.join(project, 'img/**/*'))
-        .pipe(gulp.dest(path.join(dist, 'img')));
+    gulp.src(path.join(project, 'img/**/*')).pipe(gulp.dest(path.join(dist, 'img')));
     gulp.src(path.join(common, 'layout.ejs'))
         .pipe(ejs({
             title: argv.project,
@@ -44,6 +43,36 @@ gulp.task('build', ['clean'], function () {
         }))
         .pipe(gulp.dest(dist))
         .pipe(connect.reload());
+});
+
+gulp.task('build-production', function () {
+    gulp.src(path.join(project, 'img/**/*'))
+        .pipe(gulp.dest(path.join(dist + '-production/', argv.project, 'img')));
+    gulp.src(path.join(common, 'layout.ejs'))
+        .pipe(ejs({
+            title: argv.project,
+            project: argv.project,
+            project_dir: project
+        }))
+        .pipe(gulpif(!argv.production, insert.append(`<style>
+        body {
+            background: white;
+        }
+        #playground {
+            box-shadow: none;
+            border: 1px solid #ccc;
+        }
+        </style>`)))
+        .pipe(rename("index.html"))
+        .pipe(usemin({
+            path: project,
+            css: [minifyCss(), 'concat'],
+            js: [uglify(), 'concat'],
+            html: [htmlmin({ collapseWhitespace: true })],
+            inlinejs: [uglify()],
+            inlinecss: [minifyCss(), 'concat']
+        }))
+        .pipe(gulp.dest(path.join(dist + '-production/', argv.project)));
 });
 
 gulp.task('watch', ['build'], function () {
