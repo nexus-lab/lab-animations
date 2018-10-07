@@ -1,12 +1,10 @@
 <div class="scene">
     <svg id="links" width="100%" height="100%" fill="transparent" stroke="#8d6c9f" stroke-width="2">
-        <svg id="links" width="100%" height="100%" fill="transparent" stroke="#8d6c9f" stroke-width="2">
-            <path id="usr-int" d="M162 100 L225 140"></path>
-            <path id="atk-int" d="M158 220 L224 180"></path>
-            <path id="int-fwl" d="M280 160 L350 160"></path>
-            <path id="fwl-srv" d="M420 180 L486 220"></path>
-            <path id="fwl-nid" d="M415 150 L480 100"></path>
-        </svg>
+        <path id="usr-int" d="M162 100 L225 140"></path>
+        <path id="atk-int" d="M158 220 L224 180"></path>
+        <path id="int-fwl" d="M288 160 L360 160"></path>
+        <path id="fwl-srv" d="M420 180 L486 220"></path>
+        <path id="fwl-nid" d="M415 150 L480 100"></path>
     </svg>
     <span class="actor" id="user">
         <img class="icon" src="img/icons8-female-user-64.png">
@@ -65,31 +63,42 @@
             <img class="icon" src="img/icons8-alarm-64.png">
             <span class="name">Alert</span>
         </span>
-        <span id="packet-7" class="packet">Packet</span>
-        <span id="packet-8" class="packet">Packet</span>
-        <span id="packet-9" class="packet">Packet</span>
-        <span id="bad-packet-7" class="packet bad-packet">Packet</span>
-        <span id="bad-packet-8" class="packet bad-packet">Packet</span>
-        <span id="bad-packet-9" class="packet bad-packet">Packet</span>
-        <span id="signature-7" class="packet signature">Signature</span>
-        <span id="signature-8" class="packet signature">Signature</span>
-        <span id="signature-9" class="packet signature">Signature</span>
-        <span id="bad-signature-7" class="packet bad-packet signature">Signature</span>
-        <span id="bad-signature-8" class="packet bad-packet signature">Signature</span>
-        <span id="bad-signature-9" class="packet bad-packet signature">Signature</span>
+        <span id="packet-5" class="packet">Packet</span>
+        <span id="packet-6" class="packet">Packet</span>
+        <span id="bad-packet-5" class="packet bad-packet">Packet</span>
+        <span id="bad-packet-6" class="packet bad-packet">Packet</span>
+        <span id="signature-5" class="packet signature">Signature</span>
+        <span id="signature-6" class="packet signature">Signature</span>
+        <span id="bad-signature-5" class="packet bad-packet signature">Signature</span>
+        <span id="bad-signature-6" class="packet bad-packet signature">Signature</span>
         <span id="rule-1" class="packet rule">Rule</span>
-        <span id="rule-2" class="packet rule">Rule</span>
+        <span id="log-1" class="packet log">Log</span>
+        <span id="alert-1" class="packet alert">Alert</span>
+        <span id="match">
+            <img src="img/icons8-idea-64.png"><span>Match!</span>
+        </span>
     </div>
     <span id="packet-1" class="packet">Packet</span>
     <span id="packet-2" class="packet">Packet</span>
     <span id="packet-3" class="packet">Packet</span>
     <span id="packet-4" class="packet">Packet</span>
-    <span id="packet-5" class="packet">Packet</span>
-    <span id="packet-6" class="packet">Packet</span>
     <span id="bad-packet-1" class="packet bad-packet">Packet</span>
     <span id="bad-packet-2" class="packet bad-packet">Packet</span>
     <span id="bad-packet-3" class="packet bad-packet">Packet</span>
     <span id="bad-packet-4" class="packet bad-packet">Packet</span>
-    <span id="bad-packet-5" class="packet bad-packet">Packet</span>
-    <span id="bad-packet-6" class="packet bad-packet">Packet</span>
+    <svg width="100%" height="100%">
+        <g id="dlg-nids">
+            <rect height="35" fill="#faefde" width="240" x="210" y="30"></rect>
+            <path fill="transparent" stroke="#8d6c9f" stroke-width="2" d="M476 67 L450 48 L450 30 L210 30 L210 65 L450 65 L450 54"></path>
+            <text x="218" y="52" fill="#8d6c9f">Firewall, intrusion type X detected!</text>
+        </g>
+        <g id="dlg-firewall">
+            <rect height="35" fill="#faefde" width="144" x="270" y="65"></rect>
+            <path fill="transparent" stroke="#8d6c9f" stroke-width="2" d="M384 126 L384 100 L270 100 L270 65 L414 65 L414 100 L388 100"></path>
+            <text x="278" y="87" fill="#8d6c9f">OK, I will be careful!</text>
+        </g>
+    </svg>
+    <span class="splash" id="splash-1">
+        <h2>Network Intrusion Detection System (NIDS)</h2>
+    </span>
 </div>

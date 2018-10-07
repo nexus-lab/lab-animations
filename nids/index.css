@@ -35,7 +35,7 @@
     height: 64px;
     position: absolute;
     display: inline-block;
-    border: 2px solid #72caaf;
+    border: 2px solid #8d6c9f;
     border-radius: 4px;
     opacity: 0;
 }
@@ -47,7 +47,7 @@
     left: calc(50% - 301px);
     position: absolute;
     background: #f7f7f7;
-    border: 2px solid #72caaf;
+    border: 2px solid #8d6c9f;
     border-radius: 4px;
     transform-origin: top left;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 0px 1px rgba(0, 0, 0, 0.4);
@@ -96,4 +96,33 @@
 .rule {
     margin-top: -10px;
     margin-left: -14px;
+}
+
+.log {
+    margin-top: -10px;
+    margin-left: -12.5px;
+}
+
+.alert {
+    margin-top: -10px;
+    margin-left: -15px;
+}
+
+#match {
+    position: absolute;
+    font-size: 0.8rem;
+    left: calc(60% - 33px);
+    top: calc(30% - 56px);
+    opacity: 0;
+}
+
+#match span {
+    line-height: 24px;
+    margin-left: 2px;
+    vertical-align: top;
+}
+
+#match img {
+    width: 24px;
+    height: 24px;
 }

@@ -126,7 +126,7 @@ function relativeValue(value) {
 function packetTime(paths, speed = defaultPacketSpeed) {
     let distance = 0;
     paths.forEach(path => {
-        if (typeof(path) === 'string') {
+        if (typeof (path) === 'string') {
             path = anime.path(path);
         }
         distance += path().el.getTotalLength();
@@ -164,19 +164,19 @@ function connectActors(container, actor1, actor2, link) {
     function c(l, t, r, b) {
         const f_l = f(l, null);
         if (f_l >= t && f_l <= b && n(l, f_l)) {
-            return {x: l, y: f_l};
+            return { x: l, y: f_l };
         }
         const f_t = f(null, t);
         if (f_t >= l && f_t <= r && n(f_t, t)) {
-            return {x: f_t, y: t};
+            return { x: f_t, y: t };
         }
         const f_r = f(r, null);
         if (f_r >= t && f_r <= b && n(r, f_r)) {
-            return {x: r, y: f_r};
+            return { x: r, y: f_r };
         }
         const f_b = f(null, b);
         if (f_b >= l && f_b <= r && n(f_b, b)) {
-            return {x: f_b, y: b};
+            return { x: f_b, y: b };
         }
     }
 
@@ -210,7 +210,7 @@ function showSplash(id, beginning = false) {
 
 function showPacket(id, paths, directions, offset = 0, speed = defaultPacketSpeed) {
     return Array.prototype.concat.apply([], paths.map((path, i) => {
-        if (typeof(path) === 'string') {
+        if (typeof (path) === 'string') {
             path = anime.path(path);
         }
         const length = path().el.getTotalLength();
@@ -257,5 +257,12 @@ function showDialog(id, offset = 0) {
         strokeDashoffset: [0, anime.setDashoffset],
         easing: 'easeInOutSine',
         duration: 500
+    }];
+}
+
+function stall(delay) {
+    return [{
+        target: '.scene',
+        duration: delay
     }];
 }

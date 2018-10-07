@@ -2,13 +2,6 @@ const typingSpeed = 1 / 80;
 const terminal = document.querySelector('#console code');
 const commandText = document.querySelector('#console script[type="text"]').textContent;
 
-function stall(delay) {
-    return [{
-        target: '.scene',
-        duration: delay
-    }];
-}
-
 function windowPopOut(id) {
     return [{
         targets: id,
