@@ -24,20 +24,16 @@
 }
 
 #arp-request, #arp-request-1 {
-    top: -8px;
-    left: -29px;
+    margin-top: -8px;
+    margin-left: -29px;
 }
 
 #arp-response, #arp-response-1 {
-    top: -8px;
-    left: -36px;
-}
-
-#arp-response-1 {
-    background: #ec7798 !important;
+    margin-top: -8px;
+    margin-left: -36px;
 }
 
 #data-1, #data-2, #data-3 {
-    top: -11px;
-    left: -13px;
+    margin-top: -11px;
+    margin-left: -13px;
 }

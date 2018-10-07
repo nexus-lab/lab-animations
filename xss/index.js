@@ -1,7 +1,3 @@
-document.querySelector('#playground').onclick = function (e) {
-    console.log(e.clientX - document.querySelector('#playground').offsetLeft, e.clientY - document.querySelector('#playground').offsetTop)
-}
-
 const timePopUp = 200;
 const packetSpeed = 1 / 15;
 const typingSpeed = 1 / 20;

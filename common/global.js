@@ -83,8 +83,17 @@ document.querySelector('#playground .restart').onclick = playground.restart;
 
 ['input', 'change'].forEach(function (evt) {
     controlsProgressEl.addEventListener(evt, function () {
+        const paused = playground.paused;
+        playground.pause();
         playground.seek(playground.duration * (controlsProgressEl.value / 100));
-        document.querySelector('#playground .play').disabled = false;
+        if (!paused) {
+            playground.play();
+            document.querySelector('#playground .play').disabled = true;
+            document.querySelector('#playground .pause').disabled = false;
+        } else {
+            document.querySelector('#playground .play').disabled = false;
+            document.querySelector('#playground .pause').disabled = true;
+        }
     });
 });
 
@@ -117,9 +126,64 @@ function relativeValue(value) {
 function packetTime(paths, speed = defaultPacketSpeed) {
     let distance = 0;
     paths.forEach(path => {
+        if (typeof(path) === 'string') {
+            path = anime.path(path);
+        }
         distance += path().el.getTotalLength();
     });
     return Math.round(distance / speed);
+}
+
+function connectActors(container, actor1, actor2, link) {
+    const el1 = document.querySelector(actor1);
+    const el2 = document.querySelector(actor2);
+    const pos1 = {
+        top: relativeOffset(actor1).top - relativeOffset(container).top,
+        left: relativeOffset(actor1).left - relativeOffset(container).left
+    };
+    const pos2 = {
+        top: relativeOffset(actor2).top - relativeOffset(container).top,
+        left: relativeOffset(actor2).left - relativeOffset(container).left
+    };
+    const size1 = { width: el1.offsetWidth, height: el1.offsetHeight };
+    const size2 = { width: el2.offsetWidth, height: el2.offsetHeight };
+    const x1 = pos1.left + size1.width / 2;
+    const y1 = pos1.top + 32;
+    const x2 = pos2.left + size2.width / 2;
+    const y2 = pos2.top + 32;
+    function f(x = null, y = null) {
+        if (y === null && x !== null) {
+            return ((y1 - y2) * x + x1 * y2 - x2 * y1) / (x1 - x2);
+        } else if (x === null && y !== null) {
+            return ((x1 - x2) * y - x1 * y2 + x2 * y1) / (y1 - y2);
+        }
+    }
+    function n(x, y) {
+        return (x - x1) * (x - x2) <= 0 && (y - y1) * (y - y2) <= 0;
+    }
+    function c(l, t, r, b) {
+        const f_l = f(l, null);
+        if (f_l >= t && f_l <= b && n(l, f_l)) {
+            return {x: l, y: f_l};
+        }
+        const f_t = f(null, t);
+        if (f_t >= l && f_t <= r && n(f_t, t)) {
+            return {x: f_t, y: t};
+        }
+        const f_r = f(r, null);
+        if (f_r >= t && f_r <= b && n(r, f_r)) {
+            return {x: r, y: f_r};
+        }
+        const f_b = f(null, b);
+        if (f_b >= l && f_b <= r && n(f_b, b)) {
+            return {x: f_b, y: b};
+        }
+    }
+
+    const s = c(pos1.left, pos1.top, pos1.left + size1.width, pos1.top + size1.height);
+    const e = c(pos2.left, pos2.top, pos2.left + size2.width, pos2.top + size2.height);
+    const d = `M${s.x} ${s.y} L${e.x} ${e.y}`;
+    document.querySelector(link).setAttribute('d', d);
 }
 
 function showSplash(id, beginning = false) {
@@ -146,6 +210,9 @@ function showSplash(id, beginning = false) {
 
 function showPacket(id, paths, directions, offset = 0, speed = defaultPacketSpeed) {
     return Array.prototype.concat.apply([], paths.map((path, i) => {
+        if (typeof(path) === 'string') {
+            path = anime.path(path);
+        }
         const length = path().el.getTotalLength();
         const actions = [{
             targets: id,

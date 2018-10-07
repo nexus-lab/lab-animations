@@ -132,4 +132,11 @@ body {
     padding: 2px;
     position: absolute;
     color: #333;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+#playground .scene .bad-packet {
+    background: #ec7798;
 }

@@ -1,7 +1,6 @@
 const typingSpeed = 1 / 80;
 const terminal = document.querySelector('#console code');
 const commandText = document.querySelector('#console script[type="text"]').textContent;
-terminal.textContent = '';
 
 function stall(delay) {
     return [{
@@ -52,9 +51,11 @@ function typingCommand() {
         easing: 'linear',
         len: fragments.length,
         duration: fragments.length / typingSpeed,
-        run: function () {
-            terminal.textContent = previous + fragments.slice(0, wrap.len + 1).join('');
-            hljs.highlightBlock(terminal);
+        run: function (anim) {
+            if (anim.progress > 0) {
+                terminal.textContent = previous + fragments.slice(0, wrap.len + 1).join('');
+                hljs.highlightBlock(terminal);
+            }
         }
     }];
 }
@@ -272,7 +273,7 @@ for (let i = 0; i < 7; i++) {
 playground.add(showText('#var-2', 'passwd[]="1234567"'));
 playground.add(setTextDirect('#m-granted', '00', '01'));
 blinkBytes('#m-granted');
-playground.add(showText('#var-1', 'passwd[8]=granted=1'));
+playground.add(showText('#var-1', 'passwd[7]=granted=1'));
 showEditorAndMoveBreakpoint(16);
 playground.add(stall(500));
 typeNextCommand();

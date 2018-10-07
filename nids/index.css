@@ -1,0 +1,99 @@
+#user {
+    left: calc(20% - 32px);
+    top: calc(25% - 32px);
+}
+
+#attacker {
+    left: calc(20% - 32px);
+    top: calc(75% - 32px);
+}
+
+#internet {
+    left: calc(40% - 32px);
+    top: calc(50% - 32px);
+}
+
+#firewall {
+    left: calc(60% - 32px);
+    top: calc(50% - 32px);
+}
+
+#nids {
+    left: calc(80% - 32px);
+    top: calc(25% - 32px);
+}
+
+#server {
+    left: calc(80% - 32px);
+    top: calc(75% - 32px);
+}
+
+#nids-magnify-border {
+    left: calc(80% - 35px);
+    top: calc(25% - 35px);
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    display: inline-block;
+    border: 2px solid #72caaf;
+    border-radius: 4px;
+    opacity: 0;
+}
+
+#nids-magnify {
+    width: 600px;
+    height: 280px;
+    top: calc(50% - 141px);
+    left: calc(50% - 301px);
+    position: absolute;
+    background: #f7f7f7;
+    border: 2px solid #72caaf;
+    border-radius: 4px;
+    transform-origin: top left;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 0px 1px rgba(0, 0, 0, 0.4);
+}
+
+#sniffer {
+    left: calc(20% - 32px);
+    top: calc(30% - 32px);
+}
+
+#processor {
+    left: calc(40% - 32px);
+    top: calc(30% - 32px);
+}
+
+#detector {
+    left: calc(60% - 32px);
+    top: calc(30% - 32px);
+}
+
+#rules {
+    left: calc(60% - 36px);
+    top: calc(70% - 32px);
+}
+
+#logs {
+    left: calc(80% - 32px);
+    top: calc(30% - 32px);
+}
+
+#alert {
+    left: calc(80% - 32px);
+    top: calc(70% - 32px);
+}
+
+.packet, .bad-packet {
+    margin-top: -10px;
+    margin-left: -20px;
+}
+
+.signature {
+    margin-top: -10px;
+    margin-left: -25px;
+}
+
+.rule {
+    margin-top: -10px;
+    margin-left: -14px;
+}
