@@ -97,6 +97,20 @@ document.querySelector('#playground .restart').onclick = playground.restart;
     });
 });
 
+document.querySelector('#playground .play-button').addEventListener('click', function () {
+    playground.play();
+    document.querySelector('#playground .play-button').style.display = "none";
+});
+
+['.scene', '.player'].forEach(id => {
+    document.querySelector('#playground ' + id).addEventListener('mouseenter', function () {
+        document.querySelector('#playground .player').style.transform = "translate(0, 0)";
+    });
+    document.querySelector('#playground ' + id).addEventListener('mouseleave', function () {
+        document.querySelector('#playground .player').style.transform = "translate(0, 50px)";
+    });
+});
+
 anime.easings['reverseLinear'] = function (t) {
     return 1 - t;
 }

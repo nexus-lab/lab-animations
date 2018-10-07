@@ -56,9 +56,11 @@ gulp.task('build-production', function () {
         }))
         .pipe(gulpif(!argv.production, insert.append(`<style>
         body {
+            margin: 0;
             background: white;
         }
         #playground {
+            margin: 0;
             box-shadow: none;
             border: 1px solid #ccc;
         }
