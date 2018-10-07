@@ -100,6 +100,8 @@ document.querySelector('#playground .restart').onclick = playground.restart;
 document.querySelector('#playground .play-button').addEventListener('click', function () {
     playground.play();
     document.querySelector('#playground .play-button').style.display = "none";
+    document.querySelector('#playground .play').disabled = true;
+    document.querySelector('#playground .pause').disabled = false;
 });
 
 ['.scene', '.player'].forEach(id => {
