@@ -1,0 +1,139 @@
+.scene {
+    background: #91949d;
+}
+
+pre, code {
+    margin: 0;
+}
+
+.window {
+    position: absolute;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.window .titlebar {
+    font-size: 0.7rem;
+    display: flex;
+    background: #f2f2f2;
+    padding: 2px 6px;
+    color: #333;
+}
+
+.window .titlebar .icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+}
+
+.window .titlebar .title {
+    flex: 1 1;
+    line-height: 18px;
+}
+
+.window .titlebar .controls i {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 2px 0 0 4px;
+}
+
+.window .titlebar .controls .minimize {
+    background: #fcbf40;
+}
+
+.window .titlebar .controls .maximize {
+    background: #34c94b;
+}
+
+.window .titlebar .controls .close {
+    background: #fb625d;
+}
+
+#editor {
+    top: 20px;
+    left: 30px;
+    min-width: 300px;
+    z-index: 1;
+}
+
+#editor pre, code {
+    white-space: pre-line;
+}
+
+#editor pre code .indent {
+    white-space: pre-wrap;
+}
+
+#editor #code {
+    font-size: 0.7rem;
+    position: relative;
+}
+
+#editor #code pre code {
+    padding: 6px 10px 10px 20px;
+}
+
+#editor #code #breakpoint {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fb625d;
+    left: 8px;
+    top: 0;
+    opacity: 0;
+    display: inline-block;
+}
+
+#terminal {
+    top: 30px;
+    left: 290px;
+    min-width: 320px;
+    z-index: 2;
+}
+
+#terminal #console pre code {
+    font-size: 0.7rem;
+    min-height: 100px;
+}
+
+#debugger {
+    top: 130px;
+    left: 280px;
+    min-width: 321px;
+    z-index: 3;
+}
+
+#debugger pre, #debugger code {
+    white-space: pre-wrap;
+}
+
+#debugger #stack {
+    font-size: 0.7rem;
+    color: #90c376;
+    font-family: monospace;
+    padding: 10px 5px;
+}
+
+#debugger #stack table {
+    border-collapse: collapse;
+}
+
+#debugger #stack table td {
+    min-width: 50px;
+    padding: 2px 4px;
+    border: 1px solid #90c376;
+}
+
+#debugger #stack table td.pointer, #debugger #stack table td.var {
+    border: none;
+}
+
+#debugger #stack table td.pointer {
+    min-width: auto;
+    text-align: right;
+    color: #fb625d;
+}

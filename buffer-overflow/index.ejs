@@ -1,0 +1,116 @@
+<div class="scene">
+    <div class="window" id="editor">
+        <div class="titlebar">
+            <img src="img/icons8-code-file-64.png" class="icon">
+            <span class="title">Editor</span>
+            <span class="controls"><i class="minimize"></i><i class="maximize"></i><i class="close"></i></span>
+        </div>
+        <div id="code">
+            <pre>
+                <code class="c">// file: guard.c
+                #include &lt;stdio.h&gt;
+                #include &lt;string.h&gt;
+                
+                int main() {
+                <span class="indent">    </span>char granted = 0;
+                <span class="indent">    </span>char passwd[7];
+                <span class="indent">    </span>printf("Password: ");
+                <span class="indent">    </span>gets(passwd);
+                <span class="indent">    </span>if (!strcmp(passwd, "pa$$wd")) {
+                <span class="indent">        </span>granted = 1;
+                <span class="indent">    </span>}
+                <span class="indent">    </span>if (granted == 1) {
+                <span class="indent">        </span>printf("Access granted!\n");
+                <span class="indent">    </span>}
+                <span class="indent">    </span>return 0;
+                }
+                </code></pre>
+            <span id="breakpoint"></span>
+        </div>
+    </div>
+    <div class="window" id="terminal">
+        <div class="titlebar">
+            <img src="img/icons8-console-64.png" class="icon">
+            <span class="title">Terminal</span>
+            <span class="controls"><i class="minimize"></i><i class="maximize"></i><i class="close"></i></span>
+        </div>
+        <div id="console">
+            <script type="text">
+$ # Left is a vulnerable c program
+$ # Let's first compile it
+$ gcc -fno-stack-protector -o guard guard.c
+$ # Test if the password works
+$ ./guard
+Password: pa$$wd
+Access granted!
+$ # Nothing shows up if password is wrong
+$ ./guard
+Password: 123456
+$ # However, with buffer overflow, we can
+$ # get access even with wrong password.
+$ # Put a 8 byte password with last byte 0x01
+$ printf '1234567\x01' | ./guard
+Password: Access granted!
+            </script>
+            <pre><code class="shell"></code></pre>
+        </div>
+    </div>
+    <div class="window" id="debugger">
+        <div class="titlebar">
+            <img src="img/icons8-bug-64.png" class="icon">
+            <span class="title">Stack Debugger</span>
+            <span class="controls"><i class="minimize"></i><i class="maximize"></i><i class="close"></i></span>
+        </div>
+        <div id="stack" class="hljs">
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Mem Adress</th>
+                    <th>Value</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td class="pointer"></td>
+                    <td>0xbfffec7c</td>
+                    <td>0xb7d82637</td>
+                    <td class="var">Return Address</td>
+                </tr>
+                <tr>
+                    <td class="pointer">-></td>
+                    <td>0xbfffec78</td>
+                    <td>0x00000000</td>
+                    <td class="var">Prev Frame Pointer</td>
+                </tr>
+                <tr>
+                    <td class="pointer"></td>
+                    <td>0xbfffec74</td>
+                    <td>0xbfffec90</td>
+                    <td class="var"></td>
+                </tr>
+                <tr>
+                    <td class="pointer"></td>
+                    <td>0xbfffec70</td>
+                    <td>0xb7f1c3dc</td>
+                    <td class="var"></td>
+                </tr>
+                <tr>
+                    <td class="pointer"></td>
+                    <td>0xbfffec6c</td>
+                    <td>0x<span id="m-granted">4a</span><span id="m-passwd-6">ff</span><span id="m-passwd-5">7c</span><span
+                            id="m-passwd-4">9d</span></td>
+                    <td class="var" id="var-1"></td>
+                </tr>
+                <tr>
+                    <td class="pointer"></td>
+                    <td>0xbfffec68</td>
+                    <td>0x<span id="m-passwd-3">ce</span><span id="m-passwd-2">0a</span><span id="m-passwd-1">65</span><span
+                            id="m-passwd-0">9f</span></td>
+                    <td class="var" id="var-2"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <span class="splash" id="splash-1">
+        <h2>Buffer Overflow</h2>
+    </span>
+</div>
