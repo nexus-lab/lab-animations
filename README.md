@@ -1,5 +1,5 @@
-# Promise Lab Anime
-Animations for some of the Promise labs
+# Lab Animations
+Animations for some cybersecurity labs
 
 ### Dependencies
 
