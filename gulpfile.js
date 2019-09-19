@@ -15,13 +15,14 @@ const htmlmin = require('gulp-htmlmin');
 
 const dist = path.join(__dirname, 'dist');
 const common = path.join(__dirname, 'common');
+console.log(argv)
 const project = argv.project ? path.join(__dirname, argv.project) : '';
 
 gulp.task('clean', function () {
     return del([dist, dist + '-production']);
 });
 
-gulp.task('build', ['clean'], function () {
+gulp.task('build', gulp.series('clean', function (done) {
     gulp.src(path.join(project, 'img/**/*')).pipe(gulp.dest(path.join(dist, 'img')));
     gulp.src(path.join(common, 'layout.ejs'))
         .pipe(ejs({
@@ -43,9 +44,10 @@ gulp.task('build', ['clean'], function () {
         }))
         .pipe(gulp.dest(dist))
         .pipe(connect.reload());
-});
+    done();
+}));
 
-gulp.task('build-production', function () {
+gulp.task('build-production', function (done) {
     gulp.src(path.join(project, 'img/**/*'))
         .pipe(gulp.dest(path.join(dist + '-production/', argv.project, 'img')));
     gulp.src(path.join(common, 'layout.ejs'))
@@ -75,16 +77,19 @@ gulp.task('build-production', function () {
             inlinecss: [minifyCss(), 'concat']
         }))
         .pipe(gulp.dest(path.join(dist + '-production/', argv.project)));
+    done();
 });
 
-gulp.task('watch', ['build'], function () {
-    gulp.watch(path.join(common, '**/*'), ['build']);
-    gulp.watch(path.join(project, '**/*'), ['build']);
-});
+gulp.task('watch', gulp.series('build', function (done) {
+    gulp.watch(path.join(common, '**/*'), gulp.series('build'));
+    gulp.watch(path.join(project, '**/*'), gulp.series('build'));
+    done();
+}));
 
-gulp.task('serve', ['watch'], function () {
+gulp.task('serve', gulp.series('watch', function (done) {
     connect.server({
         root: dist,
         livereload: true
     });
-});
+    done();
+}));

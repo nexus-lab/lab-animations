@@ -10,10 +10,12 @@ Animations for some of the Promise labs
 
 ```shell
 npm install
-gulp build
+gulp build --project <arp-poisoning|buffer-overflow|nids|xss>
+# or
+gulp build-production --project <arp-poisoning|buffer-overflow|nids|xss>
 ```
 ### Run
 
 ```shell
-gulp serve
+gulp serve --project <arp-poisoning|buffer-overflow|nids|xss>
 ```
